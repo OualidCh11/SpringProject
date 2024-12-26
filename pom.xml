@@ -17,7 +17,7 @@
 		<java.version>17</java.version>
 		<sonar.projectKey>your-project-key</sonar.projectKey>
 		<sonar.host.url>http://localhost:9000</sonar.host.url> <!-- Assurez-vous que l'URL est correcte -->
-		<sonar.login>your-real-sonar-token</sonar.login> <!-- Remplacez par votre jeton réel -->
+		<sonar.login>sqa_d418c414716099df11877ffde765395cc427940c</sonar.login> <!-- Remplacez par votre jeton réel -->
 	</properties>
 	<dependencies>
 		<dependency>
