@@ -11,15 +11,17 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import aitelbhiri.gestionrh.controller.AuthController;
 
-public class AuthControllerTest {
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-    private MockMvc mockMvc;
+class AuthControllerTest {
 
     @Mock
     private AuthenticationManager authenticationManager;
 
     @InjectMocks
     private AuthController authController;
+
+    private MockMvc mockMvc;
 
     @BeforeEach
     public void setUp() {
@@ -29,7 +31,8 @@ public class AuthControllerTest {
 
     @Test
     public void testSignIn() throws Exception {
-        // Exemple de test (ajoutez ici votre code pour tester)
-        System.out.println("Test SignIn executed!");
+        // Example test with an assertion
+        mockMvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post("/auth/signin"))
+                .andExpect(status().isOk());  // Assert that the response status is OK (200)
     }
 }
