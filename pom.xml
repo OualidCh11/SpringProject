@@ -17,8 +17,6 @@
 		<java.version>17</java.version>
 		<sonar.projectKey>your-project-key</sonar.projectKey>
 		<sonar.host.url>http://localhost:9000</sonar.host.url><!-- Assurez-vous que l'URL est correcte -->
-		<!--suppress UnresolvedMavenProperty -->
-		<sonar.login>${SONAR_TOKEN2}</sonar.login>
 	</properties>
 	<dependencies>
 		<dependency>
