@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4">
+    <testPlan>
+        <stringProp name="testplan.comments"></stringProp>
+        <boolProp name="testplan.functional_mode">false</boolProp>
+        <boolProp name="testplan.tearDown_on_shutdown">true</boolProp>
+        <boolProp name="testplan.serialize_threadgroups">false</boolProp>
+        <elementProp name="Test Plan" elementType="ThreadGroup">
+            <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+            <elementProp name="Threads" elementType="ThreadGroup">
+                <stringProp name="ThreadGroup.num_threads">1</stringProp> <!-- 1 utilisateur virtuel -->
+                <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+                <stringProp name="ThreadGroup.duration">60</stringProp> <!-- Durée en secondes -->
+            </elementProp>
+        </elementProp>
+    </testPlan>
+</jmeterTestPlan>

@@ -34,8 +34,8 @@ public class EmployeController {
     @GetMapping
     @PreAuthorize("hasRole('GESTIONNAIRERH')")
     public List<Employe> getAllEmployes() {
-        return employeService.getAllEmployes();
-    }
+        System.out.println(employeService.getAllEmployes());
+        return employeService.getAllEmployes();}
 
     // Endpoint pour récupérer un employé par son ID
     @GetMapping("/{id}")

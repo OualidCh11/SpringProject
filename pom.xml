@@ -2,23 +2,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>aitelbhiri.gestionrh</groupId>
 	<artifactId>gestion-ressource-humaines</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gestion-ressource-humaines</name>
 	<description>Demo project for Spring Boot</description>
+
 	<properties>
 		<java.version>17</java.version>
 		<sonar.projectKey>your-project-key</sonar.projectKey>
 		<sonar.host.url>http://localhost:9000</sonar.host.url><!-- Assurez-vous que l'URL est correcte -->
 	</properties>
+
 	<dependencies>
+		<!-- Dépendances existantes -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -96,24 +101,30 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>RELEASE</version>
 			<scope>compile</scope>
 		</dependency>
+
+		<!-- Dépendance pour Selenium WebDriver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.9.0</version> <!-- Utilisez la dernière version stable -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.7.0</version> <!-- Remplacez par la dernière version disponible -->
+		</dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
+
 			<!-- Plugin de Spring Boot -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -130,6 +141,7 @@
 				</configuration>
 			</plugin>
 
+
 			<!-- Autres plugins -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -137,13 +149,43 @@
 				<version>3.9.1</version>
 			</plugin>
 
+			<!-- Plugin Sonar -->
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.9.1.2184</version>
 			</plugin>
+
+			<plugin>
+				<groupId>com.lazerycode.jmeter</groupId>
+				<artifactId>jmeter-maven-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
+
+			<plugin>
+				<groupId>com.lazerycode.jmeter</groupId>
+				<artifactId>jmeter-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>jmeter-tests</id>
+						<goals>
+							<goal>jmeter</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- Répertoire des fichiers de test JMeter -->
+					<testFilesDirectory>${project.basedir}/src/test/jmeter</testFilesDirectory>
+
+					<!-- Répertoire où les résultats des tests seront stockés -->
+					<resultsDirectory>${project.build.directory}/jmeter/results</resultsDirectory>
+
+					<!-- Activer la génération des rapports -->
+					<generateReports>true</generateReports>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
-
-
 </project>
